@@ -112,10 +112,30 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  if (num < 1) {
+    return '';
+  }
+  if (num >= 40) {
+    return `XL${convertToRomanNumerals(num - 40)}`;
+  }
+  if (num >= 10) {
+    return `X${convertToRomanNumerals(num - 10)}`;
+  }
+  if (num >= 9) {
+    return `IX${convertToRomanNumerals(num - 9)}`;
+  }
+  if (num >= 5) {
+    return `V${convertToRomanNumerals(num - 5)}`;
+  }
+  if (num >= 4) {
+    return `IV${convertToRomanNumerals(num - 4)}`;
+  }
+  if (num >= 1) {
+    return `I${convertToRomanNumerals(num - 1)}`;
+  }
+  return 0;
 }
-
 /**
  * Converts a number to a string, replacing digits with words.
  * In this task, the use of methods of the String and Array classes is not allowed.
